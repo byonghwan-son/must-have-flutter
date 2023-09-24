@@ -18,3 +18,15 @@ samples, guidance on mobile development, and a full API reference.
 ### 버튼 & 레이아웃 결과 화면
 ![textlayoutwidgetsample.png](img%2Ftextlayoutwidgetsample.png)
 
+### Flexible
+* 파란색 flex : 7, 빨간색 flex : 3
+![flexible.png](img%2Fflexible.png)
+
+### Expanded & Flexible
+* Expanded 위젯은 Flexible 위젯을 상속하는 위젯
+* Column과 Row에서 Expanded를 사용하면 위젯이 남아 있는 공간을 최대한으로 차지함.
+* 
+* 빨간색 : Flexible (flex : 3)
+* 파란색 : Extended (flex : 1)
+* 초록색 : Extended (flex : 1)
+![flex_expanded.png](img%2Fflex_expanded.png)
