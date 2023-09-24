@@ -2,7 +2,7 @@
 
 A new Flutter project.
 
-## Getting Started
+## Getting Startedd
 
 This project is a starting point for a Flutter application.
 
@@ -18,3 +18,10 @@ samples, guidance on mobile development, and a full API reference.
 ## flutter 생성 시 git 오류가 발생할 때
 * powershell의 관리자 모드에서 아래의 명령어를 실행한다.
 > git config --global --add safe.directory '*'
+
+## 시작하기
+* main() 함수 안에 runApp을 실행하고 그 안에 MaterialApp과 Scaffold 위젯을 추가하는 것이 기본 설정이다.
+* 매개 변수 마지막에 컴마(,) 추가하기
+* 앱바와 스낵바
+* Center Widget
+* 
