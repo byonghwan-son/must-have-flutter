@@ -3,6 +3,6 @@ import 'package:image_carousel/screen/home_screen.dart';
 
 void main() {
   runApp(
-    MaterialApp(home: HomeScreen())
+    const MaterialApp(home: HomeScreen())
   );
 }
