@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:vid_player/component/custom_video_player.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,12 +22,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget renderEmpty() {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: MediaQuery
+          .of(context)
+          .size
+          .width,
       decoration: getBoxDecoration(),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          _Logo(),
+          _Logo(
+            onTap: onNewVideoPressed,
+          ),
           const SizedBox(
             height: 30.0,
           ),
@@ -37,7 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget renderVideo() {
-    return Container();
+    return Center(
+      child: CustomVideoPlayer(
+        video: video!,
+        onNewVideoPressed: onNewVideoPressed,
+      ),
+    );
   }
 
   BoxDecoration getBoxDecoration() {
@@ -51,6 +62,18 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+  }
+
+  void onNewVideoPressed() async {
+    final video = await ImagePicker().pickVideo(
+      source: ImageSource.gallery,
+    );
+
+    if (video != null) {
+      setState(() {
+        this.video = video;
+      });
+    }
   }
 }
 
@@ -84,12 +107,20 @@ class _AppName extends StatelessWidget {
 }
 
 class _Logo extends StatelessWidget {
-  const _Logo({super.key});
+  final GestureTapCallback onTap;
+
+  const _Logo({
+    required this.onTap,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      'asset/img/logo.png',
+    return GestureDetector(
+      onTap: onTap,
+      child: Image.asset(
+        'asset/img/logo.png',
+      ),
     );
   }
 }
